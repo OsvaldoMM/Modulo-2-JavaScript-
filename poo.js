@@ -63,15 +63,8 @@ class Humano {
 //Programación declarativa : Programación funcional 
 //Esta basado en funciones. 
 
-/**
- * Tarea 
- * Ejercicio 3
- * 1.- Crear una clase padre
- * 2.- Extenderla a la clase hijo
- * 3.- Ejecutar un metodo de la clase padre en la clase hijo
- * 4.- Calcular la masa corporal en la clase padre y retornar el resultado
- */
 
+/*Ejercicio de llantera
 
 class CarFeatures {
     constructor(model, year, noserie, motor) {
@@ -148,3 +141,82 @@ console.log(Bfgood.ordenDepedido())
 console.log(Bfgood.cantidad())
 
 //console.log("Número de compra====>", Bfgood.obtenerNoDecompra)
+
+*/
+
+
+/**
+ * Tarea 
+ * Ejercicio 3
+ * 1.- Crear una clase padre
+ * 2.- Extenderla a la clase hijo
+ * 3.- Ejecutar un metodo de la clase padre en la clase hijo
+ * 4.- Calcular la masa corporal en la clase padre y retornar el resultado
+ */
+
+// Clase padre
+class Certificadomedico {
+    constructor(height, weight,genre) {
+      this.height = height
+      this.weight = weight
+      this.genre = genre
+      
+    }
+  
+    tituloDelcertificado() {
+      return "CERTIFICADO MEDICO"
+    }
+
+    imc(){
+        return `Masa corporal actual: ${(this.weight)/(this.height*this.height)}` 
+    }
+  }
+
+  // Clase hijo
+  class Person extends Certificadomedico{
+
+    constructor (name, age, height, weight, genre) {
+      // Solo cuando se extiende de una clase debemos usar super
+      super(height, weight,genre)
+      this.name = name
+      this.age = age
+    }
+  
+    // Incrementar el valor cada vez que se llame
+   
+
+    nombre() {
+      return `Nombre: ${this.name}`
+    }
+  
+    edad() {
+      
+      const actualYear = new Date().getFullYear()
+      const birthYear = new Date(this.age).getFullYear()
+  
+      return `${actualYear - birthYear} años`
+    }
+    altura() {
+        return `Altura ${this.height}`
+      }
+    peso() {
+        return `Peso ${this.weight}`
+      }
+    genero() {
+        return `Genero ${this.genre}`
+      }
+
+  }
+
+  const Osvaldo = new Person ("Osvaldo", "02/09/1996", 1.71, 76, "M")
+  
+  console.log(Osvaldo.tituloDelcertificado())
+  console.log(Osvaldo.nombre())
+  console.log(Osvaldo.edad()) 
+  console.log(Osvaldo.altura()) 
+  console.log(Osvaldo.peso()) 
+  console.log(Osvaldo.imc())
+  console.log(Osvaldo.genero())
+
+
+  
